@@ -1,0 +1,31 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m"
+	controllerName="zdropdown_size.controller.V_Input" displayBlock="true">
+	<App>
+		<pages>
+			<Page title="oModel.setSizeLimit() Alternatives">
+				<content>
+					<VBox width="100%" direction="Column" id="vbox" class="sapUiSmallMargin">
+						<items>
+							<Label text=" From Date*" width="90%" id="Lb_FromDate" design="Bold"/>
+							<DatePicker width="90%" id="FromDate" valueFormat="yyyy-MM-dd" placeholder="Enter PReq Creation From Date ..." change="handleChange"/>
+							<Label text=" Purchasing Group" width="90%" id="Lb_PGroup" design="Bold"/>
+							<ComboBox id="PGrp" width="90%" showSecondaryValues="true" placeholder="Select or Enter a PGroup"
+								items="{path: '/ProductSet', length: 6, sorter: {path: 'ProductID'}}" change="GetSelectItem1" selectionChange="GetSelectItem2">
+								<items>
+									<core:ListItem text="{Name}" key="{ProductID}" additionalText="{Price} {CurrencyCode}"/>
+								</items>
+							</ComboBox>
+							<Label text=" Plant" width="90%" id="Lb_Plant" design="Bold"/>
+							<ComboBox id="Plant" width="90%" showSecondaryValues="true" placeholder="Select or Enter a Plant"
+								items="{path: '/ContactSet', length: 8, sorter: {path: 'BusinessPartnerID'}}">
+								<items>
+									<core:ListItem text="{FirstName} {MiddleName} {LastName}" key="{BusinessPartnerID}" additionalText="{Sex}"/>
+								</items>
+							</ComboBox>
+						</items>
+					</VBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
